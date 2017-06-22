@@ -175,7 +175,7 @@ export default class TimeGrid extends Component {
     let gutterRef = ref => this._gutters[1] = ref && findDOMNode(ref);
 
     return (
-      <div className='rbc-time-view'>
+      <div className='rbc-view rbc-time-view' role='tabpanel'>
 
         {this.renderHeader(range, allDayEvents, width)}
 

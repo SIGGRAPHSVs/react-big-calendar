@@ -26,27 +26,45 @@ class Toolbar extends React.Component {
         <span className='rbc-btn-group'>
           <button
             type='button'
+            role='button'
+            tabIndex='-1'
+            aria-disabled='false'
+            className={cn({
+              btn: true
+            })}
             onClick={this.navigate.bind(null, navigate.TODAY)}
           >
             {messages.today}
           </button>
           <button
             type='button'
+            role='button'
+            tabIndex='-1'
+            aria-disabled='false'
+            className={cn({
+              btn: true
+            })}
             onClick={this.navigate.bind(null, navigate.PREVIOUS)}
           >
             {messages.previous}
           </button>
           <button
             type='button'
+            role='button'
+            tabIndex='-1'
+            aria-disabled='false'
+            className={cn({
+              btn: true
+            })}
             onClick={this.navigate.bind(null, navigate.NEXT)}
           >
             {messages.next}
           </button>
         </span>
 
-        <span className='rbc-toolbar-label'>
+        <h2 className='rbc-toolbar-label'>
           { label }
-        </span>
+        </h2>
 
         <span className='rbc-btn-group'>
         {
@@ -72,8 +90,17 @@ class Toolbar extends React.Component {
     if (viewNames.length > 1) {
       return (
         viewNames.map(name =>
-          <button type='button' key={name}
-            className={cn({'rbc-active': view === name})}
+          <button
+            type='button'
+            role='tab'
+            tabIndex={ view === name ? '0' : '-1' }
+            aria-selected={ view === name ? true : false }
+            aria-controls='rbc-view'
+            key={name}
+            className={cn({
+              btn: true,
+              'rbc-active': view === name
+            })}
             onClick={this.view.bind(null, name)}
           >
             {messages[name]}

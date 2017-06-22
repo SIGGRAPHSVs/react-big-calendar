@@ -61,7 +61,7 @@ class Agenda extends React.Component {
     events.sort((a, b) => +get(a, startAccessor) - +get(b, startAccessor))
 
     return (
-      <div className='rbc-agenda-view'>
+      <div className='rbc-view rbc-agenda-view' role='tabpanel'>
         <table ref='header'>
           <thead>
             <tr>

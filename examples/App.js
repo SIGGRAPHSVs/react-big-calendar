@@ -110,4 +110,6 @@ const Example = React.createClass({
   }
 });
 
+export default Example
+
 render(<Example/>, document.getElementById('root'));
