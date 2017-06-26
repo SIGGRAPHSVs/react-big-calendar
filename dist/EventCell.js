@@ -106,7 +106,7 @@ var EventCell = function (_React$Component) {
         },
         _react2.default.createElement(
           'div',
-          { className: 'rbc-event-content', title: title },
+          { className: 'rbc-event-content', title: title, role: 'button', tabIndex: '0' },
           Event ? _react2.default.createElement(Event, { event: event, title: title }) : title
         )
       )
