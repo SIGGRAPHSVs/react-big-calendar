@@ -18,11 +18,12 @@ class Toolbar extends React.Component {
 
   render() {
     let { messages, label } = this.props;
-
     messages = message(messages)
-
     return (
       <div className='rbc-toolbar'>
+        <div className='screenreader-only recommend-agenda'>
+          <button className='btn accessibility-warning'>Warning: For improved accessibility, please use the "Agenda" view calendar.</button>
+        </div>
         <span className='rbc-btn-group'>
           <button
             type='button'
@@ -62,8 +63,8 @@ class Toolbar extends React.Component {
           </button>
         </span>
 
-        <h2 className='rbc-toolbar-label'>
-          { label }
+        <h2 className='rbc-toolbar-label' tabIndex='-1'>
+          <span role='button' tabIndex='0'>{ label }</span>
         </h2>
 
         <span className='rbc-btn-group'>
@@ -94,7 +95,7 @@ class Toolbar extends React.Component {
             type='button'
             role='tab'
             tabIndex={ view === name ? '0' : '-1' }
-            aria-selected={ view === name ? true : false }
+            aria-selected={ view === name }
             aria-controls='rbc-view'
             key={name}
             className={cn({

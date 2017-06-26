@@ -51,15 +51,11 @@ class Agenda extends React.Component {
     let { length, date, events, startAccessor } = this.props;
     let messages = message(this.props.messages);
     let end = dates.add(date, length, 'day')
-
     let range = dates.range(date, end, 'day');
-
     events = events.filter(event =>
       inRange(event, date, end, this.props)
     )
-
     events.sort((a, b) => +get(a, startAccessor) - +get(b, startAccessor))
-
     return (
       <div className='rbc-view rbc-agenda-view' role='tabpanel'>
         <table ref='header'>

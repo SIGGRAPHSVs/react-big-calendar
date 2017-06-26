@@ -544,33 +544,34 @@ class Calendar extends React.Component {
        })}
        style={style}
      >
-       {toolbar &&
-         <ToolbarToRender
-           date={current}
-           view={view}
-           views={names}
-           label={viewLabel(current, view, formats, culture)}
-           onViewChange={this.handleViewChange}
-           onNavigate={this.handleNavigate}
-           messages={this.props.messages}
-         />
-       }
-       <View
-         ref='view'
-         {...props}
-         {...formats}
-         culture={culture}
-         formats={undefined}
-         events={events}
-         date={current}
-         components={viewComponents}
-         getDrilldownView={this.getDrilldownView}
-         onNavigate={this.handleNavigate}
-         onDrillDown={this.handleDrillDown}
-         onSelectEvent={this.handleSelectEvent}
-         onSelectSlot={this.handleSelectSlot}
-         onShowMore={this._showMore}
-       />
+      <h1 className="screenreader-only">Calendar</h1>
+      {toolbar &&
+        <ToolbarToRender
+          date={current}
+          view={view}
+          views={names}
+          label={viewLabel(current, view, formats, culture)}
+          onViewChange={this.handleViewChange}
+          onNavigate={this.handleNavigate}
+          messages={this.props.messages}
+        />
+      }
+      <View
+        ref='view'
+        {...props}
+        {...formats}
+        culture={culture}
+        formats={undefined}
+        events={events}
+        date={current}
+        components={viewComponents}
+        getDrilldownView={this.getDrilldownView}
+        onNavigate={this.handleNavigate}
+        onDrillDown={this.handleDrillDown}
+        onSelectEvent={this.handleSelectEvent}
+        onSelectSlot={this.handleSelectSlot}
+        onShowMore={this._showMore}
+      />
      </div>
    );
  }
